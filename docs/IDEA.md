@@ -6,7 +6,7 @@ This document outlines the package management system for Moox, including install
 
 ---
 
-## 2. Package Status Definitions
+## 2. Package Status and Type Definitions
 
 ### 2.1 Install Status
 
@@ -28,6 +28,19 @@ Tracks whether a package is up-to-date or not.
 | `update-pending` | The package will be automatically updated.                 |
 | `needs-update`   | The package is not up to date and auto-update is disabled. |
 | `update-failed`  | The package had an error when updating.                    |
+
+### 2.3 Package Types
+
+Which kind of package are we dealing with.
+
+| Type               | Meaning                                                    |
+| ------------------ | ---------------------------------------------------------- |
+| `moox_package`     | The package is officially made by Moox.                    |
+| `moox_compatible`  | The package is compatible with Moox package API.           |
+| `moox_dependency`  | The package is directly required by Moox.                  |
+| `filament_plugin`  | The package is a Filament plugin.                          |
+| `laravel_package`  | The package has a Laravel Service Provider.                |
+| `php_package`      | The package is a PHP package.                              |
 
 ---
 
@@ -66,9 +79,11 @@ Tracks whether a package is up-to-date or not.
 | `updated_by_id`       | UUID      | User who updated it                  |
 | `updated_by_type`     | String    | Model type (`User`, `System`)        |
 | `install_status`      | Enum      | `available`, `installed`, `active`   |
-| `enum_status`         | Enum      | `up-to-date`, ... (see above)        |
+| `update_status`       | Enum      | `up-to-date`, ... (see above)        |
 | `auto_update`         | Boolean   | Whether auto-updates are enabled     |
 | `is_theme`            | Boolean   | Whether this package is a theme      |
+| `package_type`        | Enum      | `moox_package`, ... (see above)      |
+| `activation_steps`    | JSON      | `Migrated`, `Seeded`, `Configu...`   |
 
 ✅ **Relationships**
 
