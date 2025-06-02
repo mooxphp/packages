@@ -65,15 +65,17 @@ Tracks whether a package is up-to-date or not.
 | `update_scheduled_at` | Timestamp | When will it update                  |
 | `updated_by_id`       | UUID      | User who updated it                  |
 | `updated_by_type`     | String    | Model type (`User`, `System`)        |
-| `installation_status` | Enum      | `available`, `installed`, `active`   |
+| `install_status`      | Enum      | `available`, `installed`, `active`   |
+| `enum_status`         | Enum      | `up-to-date`, ... (see above)        |
 | `auto_update`         | Boolean   | Whether auto-updates are enabled     |
 | `is_theme`            | Boolean   | Whether this package is a theme      |
 
 ✅ **Relationships**
 
--   `hasMany` **Entities**, **Panels**, **Jobs**, **Mails**
 -   `belongsTo` **Category**
 -   `belongsToMany` **Tags**
+**later**
+-   `hasMany` **Entities**, **Panels**, **Jobs**, **Mails**
 -   `hasMany` **Relations**
 -   `hasMany` **Taxonomies**
 -   `hasMany` **Modules**
