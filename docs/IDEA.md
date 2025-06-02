@@ -14,6 +14,7 @@ Tracks whether a package is installed and available in Moox.
 
 | Status      | Meaning                                                                         |
 | ----------- | ------------------------------------------------------------------------------- |
+| `remote`    | The package is available on Moox.org.                                           |
 | `available` | The package exists in `/packages/` but is **not installed via Composer**.       |
 | `installed` | The package is installed via Composer but **not yet wired into Moox/Filament**. |
 | `active`    | The package is **registered in Moox and Filament**, or simply its in a panel.   |
@@ -84,6 +85,7 @@ Which kind of package are we dealing with.
 | `is_theme`            | Boolean   | Whether this package is a theme      |
 | `package_type`        | Enum      | `moox_package`, ... (see above)      |
 | `activation_steps`    | JSON      | `Migrated`, `Seeded`, `Configu...`   |
+| `scope`               | Enum      | `Vendor`, `Local`                    |
 
 ✅ **Relationships**
 
@@ -176,11 +178,11 @@ Configuration Includes:
 
 ## Plan
 
--   Create Package Entity in Packages
--   Create Package API in Packages Package
--   Create Installer using the API
--   Move migration and API to Core
--   Update all packages with new Installer (and Updater)
+-   Create a common package api in config
+-   Create the package management, read-only
+-   Create the other, entities, panels, themes, jobs, mails read-only
+-   Implement installation
+-   Implement updates
 -   Create the package registry from package manager
 -   Add GitHub and release management on moox.org
 -   Allow to create packages, entites and panels ... fields, tabs, wire
